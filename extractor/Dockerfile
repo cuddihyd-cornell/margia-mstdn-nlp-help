@@ -1,7 +1,7 @@
-FROM apache/spark-py:v3.4.0
+FROM python:3.10
 USER root
 RUN pip install requests
-WORKDIR /opt/data
+RUN mkdir /opt/app
+WORKDIR /opt/app
 COPY extract.py .
-VOLUME /opt/data
-CMD [ "python3", "extract.py" ]
+CMD [ "python3", "/opt/app/extract.py" ]
